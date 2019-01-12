@@ -5,7 +5,7 @@
 	"version": "1.0.0",
 	"publisher": "acenudt",
 	"engines": {
-		"vscode": "^1.30.0"
+		"vscode": "^1.28.0"
 	},
 	"repository": {
 		"type": "git",
