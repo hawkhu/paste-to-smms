@@ -1,6 +1,5 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-const $ = require('jquery');
 const vscode = require('vscode');
 
 // this method is called when your extension is activated
@@ -23,12 +22,48 @@ function activate(context) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('正在上传至sm.ms...\nUploading to sm.ms...');
-	
-		let editor = vscode.window.activeTextEditor;	
-		var execPaste = require('child_process').spawn;
+		let editor = vscode.window.activeTextEditor;
+
+		let platform = process.platform;
+//============================== Windows =======================================================
+
+		if (platform === 'win32') {
+			
+		var execPasteWin = require('child_process').spawn;
+		console.log(__dirname);
+		pasteWin = execPasteWin(__dirname+'/res/pasteFromClip.bat')
 		
+		// 捕获标准输出并将其打印到控制台 
+		pasteWin.stdout.on('data', function (data) { 
+			console.log('standard output:\n'); 
+			console.log(JSON.parse(data));
+			
+			if (JSON.parse(data).code==="success"){
+				vscode.window.showInformationMessage('已上传至sm.ms...（Uploaded to sm.ms...）');
+				editor.edit(textEditorEdit => {
+				let img="![]("+JSON.parse(data).data.url+")"
+				console.log(img);
+				textEditorEdit.insert(editor.selection.active, img)
+		
+				})
+			}else if (JSON.parse(data).code==="error") {
+				vscode.window.showInformationMessage("错误(error): "+JSON.parse(data).msg);				
+			}
+		});
+		// 捕获标准错误输出并将其打印到控制台 
+		pasteWin.stderr.on('data', function (data) { 
+		console.log('standard error output:\n' + data); 
+		});
+		// 注册子进程关闭事件 
+		pasteWin.on('exit', function (code, signal) { 
+		console.log('child process eixt ,exit:' + code)
+		})
+		
+		}
+		else {
 
-
+//============================== Linux =======================================================
+		var execPaste = require('child_process').spawn;
 		console.log(__dirname);
 		free = execPaste('sh', [__dirname+'/res/pasteFromClip.sh','/tmp/temp.png'])
 		// 捕获标准输出并将其打印到控制台 
@@ -45,23 +80,18 @@ function activate(context) {
 		
 				})
 			}else if (JSON.parse(data).code==="error") {
-				vscode.window.showInformationMessage("错误(error): "+JSON.parse(data).msg);
-				
+				vscode.window.showInformationMessage("错误(error): "+JSON.parse(data).msg);				
 			}
-				
-		
 		});
-
 		// 捕获标准错误输出并将其打印到控制台 
 		free.stderr.on('data', function (data) { 
 		console.log('standard error output:\n' + data); 
 		});
-
 		// 注册子进程关闭事件 
 		free.on('exit', function (code, signal) { 
 		console.log('child process eixt ,exit:' + code)
 		})
-
+	}
 
 	});
 
