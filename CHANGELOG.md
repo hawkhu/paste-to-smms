@@ -1,7 +1,34 @@
-# Change Log
-All notable changes to the "paste-smms" extension will be documented in this file.
+# Changelog
+All notable changes to this project will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## [Unreleased]
-- Initial release
+
+
+
+## [1.1.0] - 2018-01-13
+### Added
+- Windows support.
+- nircmd
+- curl for win
+
+### Changed
+- VS code version demand change to 1.28.0
+### Removed
+- jQuery dependence
+  
+
+
+
+
+
+
+
+## [1.0.0] - 2018-01-12
+### Added
+- Linux support only.
+
+### Changed
+- A lot 
+### Removed
+- Nothing
