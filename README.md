@@ -18,5 +18,5 @@ Take a screenshot with any tools， then Ctrl+Shift+p， type a “p” to invok
   Linux only, no plan for MacOS yet, maybe Windows will get candy.
 
 ## Dependence
-xclip for Linux
-curl for Linux
+ - xclip for Linux
+ - curl for Linux
