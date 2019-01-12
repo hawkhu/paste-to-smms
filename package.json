@@ -1,0 +1,67 @@
+{
+	"name": "paste-smms",
+	"displayName": "paste-smms",
+	"description": "A tool for paste images that in clipboard to sm.ms",
+	"version": "1.0.0",
+	"publisher": "acenudt",
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hawkhu/paste-to-smms.git"
+	  },
+	  "homepage": "https://github.com/hawkhu/paste-to-smms/blob/master/README.md",
+	  "bugs": {
+		"url": "https://github.com/hawkhu/paste-to-smms/issues"
+	  },
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.paste2smms"
+		
+	],
+	"main": "./extension.js",
+	"keywords": [
+		"paste",
+		"image",
+		"markdown",
+		"paste image",
+		"sm.ms"
+	  ],
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.paste2smms",
+				"title": "Uploading"
+			}
+		],		
+		"configuration": {
+			"type": "object",
+			"title": "paste sm.ms configuration",
+			"properties": {
+			"paste.script": {
+					"type": "string",
+					"default": "~/.vscode/extensions/acenudt.paste-smms-1.0.0/res/pasteFromClip.sh",
+					"description": "mmm"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25",
+		"eslint": "^4.11.0",
+		"@types/node": "^8.10.25",
+		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"jquery": "^3.3.1"
+	}
+  
+}
