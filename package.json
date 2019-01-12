@@ -18,11 +18,13 @@
 	"categories": [
 		"Other"
 	],
+
 	"activationEvents": [
 		"onCommand:extension.paste2smms"
 		
 	],
 	"main": "./extension.js",
+	"icon": "res/icon.png",
 	"keywords": [
 		"paste",
 		"image",
@@ -34,9 +36,16 @@
 		"commands": [
 			{
 				"command": "extension.paste2smms",
-				"title": "Uploading"
+				"title": "Paste to sm.ms"
 			}
-		],		
+		],
+		"keybindings": [
+			{
+			  "command": "extension.paste2smms",
+			  "key": "ctrl+alt+m",
+			  "when": "editorTextFocus"
+			}
+		  ],		
 		"configuration": {
 			"type": "object",
 			"title": "paste sm.ms configuration",

@@ -18,11 +18,11 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', function () {
+	let disposable = vscode.commands.registerCommand('extension.paste2smms', function () {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+		vscode.window.showInformationMessage('正在上传至sm.ms...\nUploading to sm.ms...');
 	
 		let editor = vscode.window.activeTextEditor;	
 		var execPaste = require('child_process').spawn;
@@ -35,13 +35,20 @@ function activate(context) {
 		free.stdout.on('data', function (data) { 
 			console.log('standard output:\n'); 
 			console.log(JSON.parse(data));
-			let img="![]("+JSON.parse(data).data.url+")"
-				console.log(img);
+			
+			if (JSON.parse(data).code==="success"){
+				vscode.window.showInformationMessage('已上传至sm.ms...（Uploaded to sm.ms...）');
 				editor.edit(textEditorEdit => {
 				let img="![]("+JSON.parse(data).data.url+")"
 				console.log(img);
 				textEditorEdit.insert(editor.selection.active, img)
+		
 				})
+			}else if (JSON.parse(data).code==="error") {
+				vscode.window.showInformationMessage("错误(error): "+JSON.parse(data).msg);
+				
+			}
+				
 		
 		});
 
@@ -61,17 +68,7 @@ function activate(context) {
 	context.subscriptions.push(disposable);
 //	console.log('Congratulations, your extension "paste-smms" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable2 = vscode.commands.registerCommand('extension.saySample', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('我是一个通知,hahahahahah');
-	});
-
-	context.subscriptions.push(disposable2);
+	
 }
 exports.activate = activate;
 
