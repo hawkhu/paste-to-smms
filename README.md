@@ -7,6 +7,15 @@ A extension for VS code, directly paste image from clipboard to sm.ms
 Take a screenshot with any tools， then Ctrl+Shift+p， type a “p” to invoke command hints，select “Paste to sm.ms”.Your image will be uploaded to sm.ms.And this extension will insert markdown image element \!\[\]\(\) automatically。
  
 使用任意工具截图，然后按Ctrl+Shift+p呼出命令窗口，输入“p”唤出命令提示，选择“Paste to sm.ms”。你复制的图片就会自动上传到sm.ms，并且在你编辑的md文档中自动插入图片。
+## Install
+
+![install.gif](https://upload-images.jianshu.io/upload_images/8985600-b459eb99bd66e00b.gif?imageMogr2/auto-orient/strip)
+
+## Use 
+
+![use.gif](https://upload-images.jianshu.io/upload_images/8985600-c8acfc3c81618c96.gif?imageMogr2/auto-orient/strip)
+
+
 
 ## Release note
 
@@ -20,3 +29,5 @@ Take a screenshot with any tools， then Ctrl+Shift+p， type a “p” to invok
 ## Dependence
  - xclip for Linux
  - curl for Linux
+
+
