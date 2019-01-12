@@ -19,6 +19,12 @@ Take a screenshot with any tools， then Ctrl+Shift+p， type a “p” to invok
 
 ## Release note
 
+- 2019-01-13 v1.1.0      
+    
+  >添加windows支持，win7 Enterprise 64位测试通过
+  >Candy for windows，win7 Enterprise 64 tested.Enjoy
+
+
 - 2019-01-12 v1.0.0      
     
   >首个版本发布
