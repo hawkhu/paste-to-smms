@@ -19,7 +19,7 @@ Take a screenshot with any tools， then Ctrl+Shift+p， type a “p” to invok
 
 ## Release note
 
-- 2019-01-13 v1.1.0      
+- 2019-01-13 v1.1.1      
     
   >修改了windows下图片暂存目录以防止读写权限问题
   >Change temp images's path for win
