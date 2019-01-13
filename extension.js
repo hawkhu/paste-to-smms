@@ -19,9 +19,16 @@ function activate(context) {
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('extension.paste2smms', function () {
 		// The code you place here will be executed every time your command is executed
+		this.socksProxy = vscode.workspace.getConfiguration('paste')['socks5proxy'];
+		let socksProxyCmdOption = "";
+		if (this.socksProxy!="")
+		{
+			socksProxyCmdOption="--socks5"
+		}
+
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('正在上传至sm.ms...\nUploading to sm.ms...');
+		vscode.window.showInformationMessage('正在上传至sm.ms...\nUploading to sm.ms...'+this.folderPathConfig);
 		let editor = vscode.window.activeTextEditor;
 
 		let platform = process.platform;
@@ -31,7 +38,7 @@ function activate(context) {
 			
 		var execPasteWin = require('child_process').spawn;
 		console.log(__dirname);
-		pasteWin = execPasteWin(__dirname+'/res/pasteFromClip.bat')
+		pasteWin = execPasteWin(__dirname+'/res/pasteFromClip.bat', [socksProxyCmdOption,this.socksProxy])
 		
 		// 捕获标准输出并将其打印到控制台 
 		pasteWin.stdout.on('data', function (data) { 
@@ -64,8 +71,12 @@ function activate(context) {
 
 //============================== Linux =======================================================
 		var execPaste = require('child_process').spawn;
-		console.log(__dirname);
-		free = execPaste('sh', [__dirname+'/res/pasteFromClip.sh','/tmp/temp.png'])
+		console.log(socksProxyCmdOption);
+
+		console.log(this.socksProxy);
+
+		free = execPaste('sh', [__dirname+'/res/pasteFromClip.sh','/tmp/temp.png',socksProxyCmdOption,this.socksProxy])
+		
 		// 捕获标准输出并将其打印到控制台 
 		free.stdout.on('data', function (data) { 
 			console.log('standard output:\n'); 

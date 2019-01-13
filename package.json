@@ -50,11 +50,11 @@
 			"type": "object",
 			"title": "paste sm.ms configuration",
 			"properties": {
-			"paste.script": {
+			"paste.socks5proxy": {
 					"type": "string",
-					"default": "~/.vscode/extensions/acenudt.paste-smms-1.0.0/res/pasteFromClip.sh",
-					"description": "mmm"
-				}
+					"default": "",
+					"description": "Your socks5 proxy if you have and about  to use it."
+				}				
 			}
 		}
 	},
