@@ -23,11 +23,11 @@ Take a screenshot with any tools， then Ctrl+Shift+p， type a “p” to invok
     
   >添加了socks5代理支持（和什么东西一起用你懂的:P）
   >Add socks5 proxy feature.
-
+```json
 {
     "paste.socks5proxy": "XXX.XXX.XXX.XXX:1080"
 }
-
+```
 - 2019-01-13 v1.1.1      
     
   >修改了windows下图片暂存目录以防止读写权限问题
