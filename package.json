@@ -2,7 +2,7 @@
 	"name": "paste-smms",
 	"displayName": "paste-smms",
 	"description": "A tool for paste images that in clipboard to sm.ms",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"publisher": "acenudt",
 	"engines": {
 		"vscode": "^1.28.0"
