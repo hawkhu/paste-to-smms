@@ -28,7 +28,7 @@ function activate(context) {
 
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('正在上传至sm.ms...\nUploading to sm.ms...'+this.folderPathConfig);
+		vscode.window.showInformationMessage('正在上传至sm.ms...\nUploading to sm.ms...');
 		let editor = vscode.window.activeTextEditor;
 
 		let platform = process.platform;
