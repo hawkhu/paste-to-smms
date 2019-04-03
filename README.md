@@ -18,6 +18,11 @@ Take a screenshot with any tools， then Ctrl+Shift+p， type a “p” to invok
 
 
 ## Release note
+- 2019-04-03 v1.1.3      
+    
+  >修复上传时信息窗口显示的“undefined”字样
+  >Fix "undefined" info text while uploading
+
 
 - 2019-01-13 v1.1.2      
     
